@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > should match snapshot 1`] = `
+<button
+  class="bg-indigo-600 dark:bg-slate-800 hover:dark:bg-slate-500 hover:bg-indigo-800 text-white py-2 px-4 rounded-full w-full"
+>
+  Click me
+</button>
+`;
