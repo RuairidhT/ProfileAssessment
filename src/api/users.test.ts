@@ -11,14 +11,14 @@ describe('getUser', () => {
   it('should return user data when userId matches', async () => {
     const userId = '1';
     const mockUser: User = {
-        id: 1,
-        name: 'John Doe',
-        socialMediaHandle: '@johndoe',
-        profileImgSrc: 'http://website.com/profile.jpg',
-        bio: 'Lorem ipsum dolor sit amet.',
-        location: 'Somewhere',
-        website: 'http://website.com'
-      };
+      id: 1,
+      name: 'John Doe',
+      socialMediaHandle: '@johndoe',
+      profileImgSrc: 'http://website.com/profile.jpg',
+      bio: 'Lorem ipsum dolor sit amet.',
+      location: 'Somewhere',
+      website: 'http://website.com',
+    };
     mock.onGet(`http://localhost:3000/user/${userId}`).reply(200, mockUser);
 
     const params: Params<string> = { userId };
@@ -30,14 +30,14 @@ describe('getUser', () => {
   it('should return null when userId does not match', async () => {
     const userId = '2';
     const mockUser: User = {
-        id: 1,
-        name: 'John Doe',
-        socialMediaHandle: '@johndoe',
-        profileImgSrc: 'http://website.com/profile.jpg',
-        bio: 'Lorem ipsum dolor sit amet.',
-        location: 'Somewhere',
-        website: 'http://website.com'
-      };
+      id: 1,
+      name: 'John Doe',
+      socialMediaHandle: '@johndoe',
+      profileImgSrc: 'http://website.com/profile.jpg',
+      bio: 'Lorem ipsum dolor sit amet.',
+      location: 'Somewhere',
+      website: 'http://website.com',
+    };
     mock.onGet(`http://localhost:3000/user/${userId}`).reply(200, mockUser);
 
     const params: Params<string> = { userId };
@@ -52,6 +52,8 @@ describe('getUser', () => {
 
     const params: Params<string> = { userId };
 
-    await expect(getUser(params)).rejects.toThrow('Request failed with status code 500');
+    await expect(getUser(params)).rejects.toThrow(
+      'Request failed with status code 500'
+    );
   });
 });
